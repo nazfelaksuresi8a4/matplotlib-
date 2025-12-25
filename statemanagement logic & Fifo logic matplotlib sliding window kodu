@@ -1,0 +1,36 @@
+import math as m 
+import matplotlib.pyplot as plt 
+
+fig,ax = plt.subplots(1,1)
+array = []
+
+deg = 0
+
+start,end,frame,n = 0,0,12,24
+arr = None
+
+st,en,fr = 0,0,24*24
+
+while True:
+    if len(array) >= ((24*24)*4):
+        array = array[((24*24)//2):(24*24)]
+        st,en = len(array) // 2,len(array) - 1
+    
+    else:
+        for j in range(fr):
+            array.append(m.sin(m.radians(deg)))
+            deg += 1
+
+        en = st + fr
+
+        if len(array) > 5 * 2:
+            print(len(array),st,en)
+            ax.clear()
+            ax.plot(array[st:en])
+            plt.pause(0.05)
+
+    st = en
+
+    deg += 1
+
+plt.show() #Burası teknik olarak asla gelmez ama sen bu kodu okuyan kişi; while True yerine while flag gibi bişey yapıp karar yapısı eklersen burası çalışır(bu kodu neden yazdım bilmiyorum sadece canım istedi)
