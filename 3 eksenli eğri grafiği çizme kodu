@@ -1,0 +1,25 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+# 1. x ve y aralıklarını tanımlayın
+x = np.linspace(-1.5, 1.5, 400)
+y = np.linspace(-1.5, 1.5, 400)
+
+# 2. 2D koordinat ızgarası (grid) oluşturun
+X, Y = np.meshgrid(x, y)
+
+# 3. Z matrisini iki değişkene bağlı olarak tanımlayın (Örn: Z = X^2 + Y^2 - 1)
+Z = X**2 + Y**2 - 1
+
+# 4. Kontur çizgisini çizin (Z = 0 olan noktalar)
+plt.contour(X, Y, Z, colors="r")
+plt.grid(True)
+plt.axhline(0, color="black", linewidth=0.5)
+plt.axvline(0, color="black", linewidth=0.5)
+plt.gca().set_aspect("equal")
+plt.show()
+()
+
+
+"""
+X satırlae boyunca yayılan matris ve Y ise sütunlar boyunca yayılan matristir. """
